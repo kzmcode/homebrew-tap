@@ -48,11 +48,12 @@ brew uninstall --zap --cask kzmcode/tap/holdnote  # 設定・履歴など関連�
 
 ### HoldNote
 
-- **Google Drive への保存には事前準備が必要です。** Google Cloud で OAuth クライアントを作成し、アプリの設定画面に入力します。手順：[Google Cloud の準備](https://github.com/kzmcode/holdnote/blob/main/docs/01-google-cloud-setup.md)
+- **Google Drive への保存には事前準備が必要です。** Google Cloud で OAuth クライアントを作成し、アプリの設定画面に入力します。手順：[Google Cloud の準備](https://github.com/kzmcode/holdnote/blob/main/docs/google-cloud-setup.md)
 - **音声認識モデル** は、初回にアプリの設定画面「音声認識」タブからダウンロードします（約 150MB）。文字起こしエンジン（whisper.cpp）はアプリに同梱されています。
 - **マイクの許可** を求められたら「許可」を押してください。アップデート後に再度求められることがあります。
 - 録音は macOS の **既定の入力デバイス** で行います。音が入らない場合は、システム設定 → サウンド → 入力 で使いたいマイクを選んでください。
-- 使い方・詳しい説明：[HoldNote のリポジトリ](https://github.com/kzmcode/holdnote)
+- 使い方・詳しい説明：[HoldNote ユーザーマニュアル](https://github.com/kzmcode/holdnote/blob/main/docs/user-manual.md)
+- うまく動かないときは、ターミナルで `/Applications/HoldNote.app/Contents/MacOS/holdnote --doctor` を実行すると原因を診断できます（v0.1.1 以降）
 
 ## 困ったとき
 
