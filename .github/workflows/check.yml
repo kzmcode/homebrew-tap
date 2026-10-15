@@ -1,0 +1,30 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  style-and-audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap this checkout
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/kzmcode"
+          ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/kzmcode/homebrew-tap"
+      - name: brew style
+        run: brew style kzmcode/tap
+      - name: brew audit (casks)
+        run: |
+          for f in Casks/*.rb; do
+            [ -e "$f" ] || continue
+            brew audit --cask --online "kzmcode/tap/$(basename "$f" .rb)"
+          done
+      - name: brew audit (formulae)
+        run: |
+          for f in Formula/*.rb; do
+            [ -e "$f" ] || continue
+            brew audit --formula --online "kzmcode/tap/$(basename "$f" .rb)"
+          done
