@@ -12,6 +12,10 @@ permissions:
 jobs:
   style-and-audit:
     runs-on: macos-latest
+    env:
+      # brew audit --online calls the GitHub API; unauthenticated runners share a 60 req/h limit.
+      # The built-in token is read-only (see permissions above).
+      HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
