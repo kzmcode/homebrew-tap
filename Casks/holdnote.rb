@@ -1,8 +1,8 @@
 # HoldNote — https://github.com/kzmcode/holdnote
 # Updated by `scripts/update-cask.sh --org kzmcode` in the holdnote repository.
 cask "holdnote" do
-  version "0.1.1"
-  sha256 "ea4f8bce4e1b4746ad9a3f3ab1017884491f55d2cfab834209b7ef0491b30754"
+  version "0.1.2"
+  sha256 "d3ab379dc18a7137416b870e2e76ef0222098fef9fba743477940e9adc622941"
 
   url "https://github.com/kzmcode/holdnote/releases/download/v#{version}/HoldNote-#{version}-arm64.zip"
   name "HoldNote"
