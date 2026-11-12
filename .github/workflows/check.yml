@@ -24,6 +24,9 @@ jobs:
         run: |
           mkdir -p "$(brew --repository)/Library/Taps/kzmcode"
           ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/kzmcode/homebrew-tap"
+      - name: Trust this tap
+        # Homebrew 7 以降は信頼済みにした非公式 Tap しか読み込まない
+        run: brew trust kzmcode/tap
       - name: brew style
         run: brew style kzmcode/tap
       - name: brew audit (casks)

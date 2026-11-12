@@ -22,12 +22,14 @@ brew --version
 ## インストール
 
 ```bash
+brew tap kzmcode/tap
+brew trust kzmcode/tap                     # このリポジトリを信頼済みにする（Homebrew 7 以降で必要）
 brew install --cask kzmcode/tap/holdnote   # HoldNote
 brew install kzmcode/tap/qivmi             # Qivmi（ソースからビルド。下の注意事項を参照）
 brew install --cask kzmcode/tap/cuenu      # Cuenu
 ```
 
-アプリ名の前に `kzmcode/tap/` を付けると、このリポジトリが自動で追加されます（`brew tap kzmcode/tap` を先に実行しても同じです）。
+Homebrew 7 以降は、公式以外のリポジトリを `brew trust` で信頼済みにしないと読み込みません。最初に一度だけ `brew tap kzmcode/tap` と `brew trust kzmcode/tap` を実行してください。
 
 ### 初回起動時の許可（重要）
 
