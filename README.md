@@ -8,6 +8,7 @@
 |---|---|---|---|
 | [HoldNote](https://github.com/kzmcode/holdnote) | ホットキーを押している間だけ録音し、Mac 上で文字起こしして Google Drive に保存するメニューバーアプリ | Apple Silicon・macOS 14 以降 | `brew install --cask kzmcode/tap/holdnote` |
 | [Qivmi](https://github.com/kzmcode/qivmi) | Gmail のメールを相手ごとにまとめ、チャット形式で閲覧・送信するアプリ | macOS 13 以降 | `brew install kzmcode/tap/qivmi` |
+| [Cuenu](https://github.com/kzmcode/cuenu) | 雑に書いたメモをタイムラインに残し、AI があとから整理・提案するメモアプリ（自分の Cuenu サーバーにつないで使う） | Apple Silicon | `brew install --cask kzmcode/tap/cuenu` |
 
 ## はじめに：Homebrew の準備
 
@@ -23,13 +24,14 @@ brew --version
 ```bash
 brew install --cask kzmcode/tap/holdnote   # HoldNote
 brew install kzmcode/tap/qivmi             # Qivmi（ソースからビルド。下の注意事項を参照）
+brew install --cask kzmcode/tap/cuenu      # Cuenu
 ```
 
 アプリ名の前に `kzmcode/tap/` を付けると、このリポジトリが自動で追加されます（`brew tap kzmcode/tap` を先に実行しても同じです）。
 
 ### 初回起動時の許可（重要）
 
-HoldNote は Apple の公証を受けていないため、初回起動時に macOS（Gatekeeper）にブロックされます。次の手順で許可してください。
+HoldNote と Cuenu は Apple の公証を受けていないため、初回起動時に macOS（Gatekeeper）にブロックされます。次の手順で許可してください。
 
 1. アプリを一度開く（「開けません」と表示されたら閉じる）
 2. **システム設定 → プライバシーとセキュリティ** を開き、下の方の「セキュリティ」欄にある **「このまま開く」** を押す
@@ -94,3 +96,11 @@ Qivmi の更新・削除は「アプリ別の注意事項」を参照してく�
 ---
 
 管理者向けの手順は [MAINTAINING.md](MAINTAINING.md) にあります。
+
+### Cuenu
+
+- **自分の Cuenu サーバーが必要です。** サーバー（Cloudflare Workers）は各自でデプロイします。手順：[Cuenu の README](https://github.com/kzmcode/cuenu#readme)
+- 初回起動時に、サーバーの URL と所有者パスワードを入力して接続します。
+- クイック入力は **⌃⌘M** で開きます（設定で変更できます）。
+- スクリーンショット取り込みを使うときは **画面収録** の許可を求められます。アップデート後に、画面収録や Keychain の許可を再度求められることがあります。
+- `brew uninstall --cask kzmcode/tap/cuenu` ではメモ・設定は残ります。すべて削除する場合は `brew uninstall --zap --cask kzmcode/tap/cuenu` を使い、Keychain の「Cuenu」の項目は「キーチェーンアクセス」から手動で削除してください。
