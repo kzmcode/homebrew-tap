@@ -1,8 +1,8 @@
 # Cuenu — https://github.com/kzmcode/cuenu
 # Updated by .github/workflows/release-desktop.yml in the cuenu repository.
 cask "cuenu" do
-  version "0.1.1"
-  sha256 "02a24e7b60e06a9a4e86acf7a81c3b8d007e8349a76d36d808d1a8886e5d7ab7"
+  version "0.1.2"
+  sha256 "cb5bf479ec82e5c66c8ac2220e5724e216921d91865d369abb6890d7eed724ed"
 
   url "https://github.com/kzmcode/cuenu/releases/download/v#{version}/Cuenu_#{version}_aarch64.dmg"
   name "Cuenu"
