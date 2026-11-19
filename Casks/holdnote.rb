@@ -18,6 +18,9 @@ cask "holdnote" do
 
   app "HoldNote.app"
 
+  uninstall launchctl: "io.github.holdnote.HoldNote",
+            quit:      "io.github.holdnote.HoldNote"
+
   zap trash: [
     "~/Library/Application Support/HoldNote",
     "~/Library/LaunchAgents/io.github.holdnote.HoldNote.plist",
